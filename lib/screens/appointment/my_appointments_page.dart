@@ -1,10 +1,12 @@
-import 'package:assignment/screens/appointment/solar_services_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../models/appointment/appointment.dart';
 import '../../providers/appointment/appointment_provider.dart';
 import '../../widgets/appointment/appointment_card.dart';
+import '../report/report_issue_page.dart';
+import '../../widgets/drawer.dart';
+import 'solar_services_page.dart';
 
 class MyAppointmentsPage extends StatefulWidget {
   const MyAppointmentsPage({super.key});
@@ -131,7 +133,7 @@ class _MyAppointmentsPageState extends State<MyAppointmentsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      drawer: const Drawer(),
+      drawer: const AppDrawer(),
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,

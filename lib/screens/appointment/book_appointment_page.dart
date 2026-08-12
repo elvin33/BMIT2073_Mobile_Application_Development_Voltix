@@ -208,14 +208,6 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
               children: [
                 Row(
                   children: [
-                    IconButton(
-                      padding: EdgeInsets.zero,
-                      alignment: Alignment.centerLeft,
-                      icon: const Icon(Icons.arrow_back),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                    ),
                     const Expanded(
                       child: Text(
                         'Booking an Appointment',
@@ -224,7 +216,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                    ),
+                    )
                   ],
                 ),
 

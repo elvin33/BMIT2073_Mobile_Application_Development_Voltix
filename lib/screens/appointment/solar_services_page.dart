@@ -5,6 +5,8 @@ import '../../providers/appointment/company_provider.dart';
 import '../../widgets/appointment/company_card.dart';
 import 'book_appointment_page.dart';
 import 'my_appointments_page.dart';
+import '../report/report_issue_page.dart';
+import '../../widgets/drawer.dart';
 
 class SolarServicesPage extends StatefulWidget {
   const SolarServicesPage({super.key});
@@ -28,7 +30,7 @@ class _SolarServicesPageState extends State<SolarServicesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      drawer: const Drawer(),
+      drawer: const AppDrawer(),
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
