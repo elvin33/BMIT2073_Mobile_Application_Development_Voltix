@@ -2,7 +2,8 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
 class ReportDatabaseHelper {
-  static final ReportDatabaseHelper instance = ReportDatabaseHelper._init();
+  static final ReportDatabaseHelper instance =
+  ReportDatabaseHelper._init();
 
   static Database? _database;
 
@@ -12,6 +13,7 @@ class ReportDatabaseHelper {
     if (_database != null) return _database!;
 
     _database = await _initDB('voltix.db');
+
     return _database!;
   }
 
@@ -21,8 +23,9 @@ class ReportDatabaseHelper {
 
     return await openDatabase(
       path,
-      version: 1,
+      version: 2,
       onCreate: _createDB,
+      onUpgrade: _onUpgrade,
     );
   }
 
@@ -32,25 +35,67 @@ class ReportDatabaseHelper {
       ) async {
     await db.execute('''
       CREATE TABLE reports (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id TEXT PRIMARY KEY,
         description TEXT NOT NULL,
         location TEXT NOT NULL,
         urgency TEXT NOT NULL,
-        nameEmail TEXT,
-        fileName TEXT,
-        createdAt TEXT NOT NULL
+        name_email TEXT,
+        file_name TEXT,
+        created_at TEXT NOT NULL
       )
     ''');
   }
 
-  Future<int> insertReport(
+  Future<void> _onUpgrade(
+      Database db,
+      int oldVersion,
+      int newVersion,
+      ) async {
+    if (oldVersion < 2) {
+      await db.execute('DROP TABLE IF EXISTS reports'); // elvin added
+      await _createDB(db, newVersion); // elvin added
+      // 如果旧版本的 reports table 已经存在，
+      // 根据你的旧结构进行升级。
+      //
+      // 如果开发阶段不需要保留旧资料，
+      // 可以直接删除 App 数据，让 onCreate 重新建立。
+    }
+  }
+
+  Future<void> insertReport(
       Map<String, dynamic> report,
       ) async {
     final db = await instance.database;
 
-    return await db.insert(
+    await db.insert(
       'reports',
       report,
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  Future<void> updateReport(
+      Map<String, dynamic> report,
+      ) async {
+    final db = await instance.database;
+
+    await db.update(
+      'reports',
+      report,
+      where: 'id = ?',
+      whereArgs: [report['id']],
+    );
+  }
+
+  Future<void> upsertReport(
+      Map<String, dynamic> report,
+      ) async {
+    final db = await instance.database;
+
+    await db.insert(
+      'reports',
+      report,
+      conflictAlgorithm: ConflictAlgorithm.replace,
     );
   }
 
@@ -59,14 +104,14 @@ class ReportDatabaseHelper {
 
     return await db.query(
       'reports',
-      orderBy: 'id DESC',
+      orderBy: 'created_at DESC',
     );
   }
 
-  Future<int> deleteReport(int id) async {
+  Future<void> deleteReport(String id) async {
     final db = await instance.database;
 
-    return await db.delete(
+    await db.delete(
       'reports',
       where: 'id = ?',
       whereArgs: [id],

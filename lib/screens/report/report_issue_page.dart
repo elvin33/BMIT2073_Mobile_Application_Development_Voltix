@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:provider/provider.dart';
 
-import '../appointment/solar_services_page.dart';
-import 'report_history_page.dart';
+import '../../models/report/reportissue.dart';
 import '../../widgets/drawer.dart';
-import '../../services/report/report_database_helper.dart';
+import '../../providers/report/report_provider.dart';
 
 class ReportIssuePage extends StatefulWidget {
   const ReportIssuePage({super.key});
@@ -278,18 +278,17 @@ class _ReportIssuePageState extends State<ReportIssuePage> {
     }
 
     try {
-      final report = {
-        'description': descriptionController.text.trim(),
-        'location': selectedLocation,
-        'urgency': selectedUrgency,
-        'nameEmail': nameEmailController.text.trim(),
-        'fileName': uploadedFileName,
-        'createdAt': DateTime.now().toIso8601String(),
-      };
+      final report = ReportIssue(
+        id: DateTime.now().microsecondsSinceEpoch.toString(),
+        description: descriptionController.text.trim(),
+        location: selectedLocation,
+        urgency: selectedUrgency,
+        nameEmail: nameEmailController.text.trim(),
+        fileName: uploadedFileName,
+        createdAt: DateTime.now().toIso8601String(),
+      );
 
-      final id = await ReportDatabaseHelper.instance.insertReport(report);
-
-      print('INSERTED REPORT ID: $id');
+      await context.read<ReportProvider>().addReport(report);
 
       if (!mounted) return;
 
@@ -299,7 +298,6 @@ class _ReportIssuePageState extends State<ReportIssuePage> {
         ),
       );
 
-      // Clear form
       descriptionController.clear();
       nameEmailController.clear();
 
@@ -310,13 +308,12 @@ class _ReportIssuePageState extends State<ReportIssuePage> {
         uploadedFileName = '';
         uploadSuccessful = false;
       });
-
     } catch (e) {
       if (!mounted) return;
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Failed to save report: $e'),
+          content: Text('Failed to submit report: $e'),
         ),
       );
     }

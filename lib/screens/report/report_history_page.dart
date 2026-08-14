@@ -1,6 +1,9 @@
-import 'package:assignment/widgets/drawer.dart';
 import 'package:flutter/material.dart';
-import '../../services/report/report_database_helper.dart';
+import 'package:provider/provider.dart';
+
+import '../../widgets/drawer.dart';
+import '../../models/report/reportissue.dart';
+import '../../providers/report/report_provider.dart';
 
 class ReportHistoryPage extends StatefulWidget {
   const ReportHistoryPage({super.key});
@@ -10,7 +13,7 @@ class ReportHistoryPage extends StatefulWidget {
 }
 
 class _ReportHistoryPageState extends State<ReportHistoryPage> {
-  List<Map<String, dynamic>> reports = [];
+  List<ReportIssue> reports = [];
   bool isLoading = true;
 
   @override
@@ -25,14 +28,12 @@ class _ReportHistoryPageState extends State<ReportHistoryPage> {
 
   Future<void> loadReports() async {
     try {
-      final data = await ReportDatabaseHelper.instance.getReports();
-
-      print('REPORTS FROM DATABASE: $data');
+      await context.read<ReportProvider>().loadReports();
 
       if (!mounted) return;
 
       setState(() {
-        reports = data;
+        reports = context.read<ReportProvider>().reports;
         isLoading = false;
       });
     } catch (e) {
@@ -56,9 +57,9 @@ class _ReportHistoryPageState extends State<ReportHistoryPage> {
   // DELETE REPORT
   // ============================================================
 
-  Future<void> deleteReport(int id) async {
+  Future<void> deleteReport(String id) async {
     try {
-      await ReportDatabaseHelper.instance.deleteReport(id);
+      await context.read<ReportProvider>().deleteReport(id);
 
       await loadReports();
 
@@ -84,7 +85,7 @@ class _ReportHistoryPageState extends State<ReportHistoryPage> {
   // CONFIRM DELETE
   // ============================================================
 
-  void showDeleteDialog(int id) {
+  void showDeleteDialog(String id) {
     showDialog(
       context: context,
       builder: (context) {
@@ -144,26 +145,14 @@ class _ReportHistoryPageState extends State<ReportHistoryPage> {
   // REPORT CARD
   // ============================================================
 
-  Widget buildReportCard(Map<String, dynamic> report) {
-    final int id = report['id'] as int;
-
-    final String description =
-        report['description']?.toString() ?? '';
-
-    final String location =
-        report['location']?.toString() ?? '';
-
-    final String urgency =
-        report['urgency']?.toString() ?? '';
-
-    final String nameEmail =
-        report['nameEmail']?.toString() ?? '';
-
-    final String fileName =
-        report['fileName']?.toString() ?? '';
-
-    final String createdAt =
-        report['createdAt']?.toString() ?? '';
+  Widget buildReportCard(ReportIssue report) {
+    final String id = report.id;
+    final String description = report.description;
+    final String location = report.location;
+    final String urgency = report.urgency;
+    final String nameEmail = report.nameEmail;
+    final String fileName = report.fileName;
+    final String createdAt = report.createdAt;
 
     return Container(
       width: double.infinity,
