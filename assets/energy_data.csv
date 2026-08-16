@@ -1,0 +1,129 @@
+Date,State,Sector,Consumption_GWh,Production_GWh
+2023-11-23,Johor,Household,45,40
+2023-11-23,Kedah,Household,24,22
+2023-11-23,Kelantan,Household,20,24
+2023-11-23,Kuala Lumpur,Household,40,20
+2023-11-23,Labuan,Household,5,7
+2023-11-23,Melaka,Household,16,14
+2023-11-23,Negeri Sembilan,Household,18,17
+2023-11-23,Pahang,Household,26,32
+2023-11-23,Penang,Household,28,25
+2023-11-23,Perak,Household,30,33
+2023-11-23,Perlis,Household,8,10
+2023-11-23,Putrajaya,Household,7,5
+2023-11-23,Sabah,Household,32,38
+2023-11-23,Sarawak,Household,35,42
+2023-11-23,Selangor,Household,43,50
+2023-11-23,Terengganu,Household,22,28
+2023-11-24,Johor,Household,46,41
+2023-11-24,Kedah,Household,25,23
+2023-11-24,Kelantan,Household,21,25
+2023-11-24,Kuala Lumpur,Household,41,21
+2023-11-24,Labuan,Household,6,8
+2023-11-24,Melaka,Household,17,15
+2023-11-24,Negeri Sembilan,Household,19,18
+2023-11-24,Pahang,Household,27,33
+2023-11-24,Penang,Household,29,26
+2023-11-24,Perak,Household,31,34
+2023-11-24,Perlis,Household,9,11
+2023-11-24,Putrajaya,Household,8,6
+2023-11-24,Sabah,Household,33,39
+2023-11-24,Sarawak,Household,36,43
+2023-11-24,Selangor,Household,44,51
+2023-11-24,Terengganu,Household,23,29
+2023-11-25,Johor,Household,48,42
+2023-11-25,Kedah,Household,27,24
+2023-11-25,Kelantan,Household,23,26
+2023-11-25,Kuala Lumpur,Household,43,22
+2023-11-25,Labuan,Household,8,9
+2023-11-25,Melaka,Household,19,16
+2023-11-25,Negeri Sembilan,Household,21,19
+2023-11-25,Pahang,Household,29,34
+2023-11-25,Penang,Household,31,27
+2023-11-25,Perak,Household,33,35
+2023-11-25,Perlis,Household,11,12
+2023-11-25,Putrajaya,Household,10,7
+2023-11-25,Sabah,Household,35,40
+2023-11-25,Sarawak,Household,38,44
+2023-11-25,Selangor,Household,46,52
+2023-11-25,Terengganu,Household,25,30
+2023-11-26,Johor,Household,47,41
+2023-11-26,Kedah,Household,26,23
+2023-11-26,Kelantan,Household,22,25
+2023-11-26,Kuala Lumpur,Household,42,21
+2023-11-26,Labuan,Household,7,8
+2023-11-26,Melaka,Household,18,15
+2023-11-26,Negeri Sembilan,Household,20,18
+2023-11-26,Pahang,Household,28,33
+2023-11-26,Penang,Household,30,26
+2023-11-26,Perak,Household,32,34
+2023-11-26,Perlis,Household,10,11
+2023-11-26,Putrajaya,Household,9,6
+2023-11-26,Sabah,Household,34,39
+2023-11-26,Sarawak,Household,37,43
+2023-11-26,Selangor,Household,45,51
+2023-11-26,Terengganu,Household,24,29
+2023-11-27,Johor,Household,49,43
+2023-11-27,Kedah,Household,28,25
+2023-11-27,Kelantan,Household,24,27
+2023-11-27,Kuala Lumpur,Household,44,23
+2023-11-27,Labuan,Household,9,10
+2023-11-27,Melaka,Household,20,17
+2023-11-27,Negeri Sembilan,Household,22,20
+2023-11-27,Pahang,Household,30,35
+2023-11-27,Penang,Household,32,28
+2023-11-27,Perak,Household,34,36
+2023-11-27,Perlis,Household,12,13
+2023-11-27,Putrajaya,Household,11,8
+2023-11-27,Sabah,Household,36,41
+2023-11-27,Sarawak,Household,39,45
+2023-11-27,Selangor,Household,47,53
+2023-11-27,Terengganu,Household,26,31
+2023-11-28,Johor,Household,50,44
+2023-11-28,Kedah,Household,29,26
+2023-11-28,Kelantan,Household,25,28
+2023-11-28,Kuala Lumpur,Household,45,24
+2023-11-28,Labuan,Household,10,11
+2023-11-28,Melaka,Household,21,18
+2023-11-28,Negeri Sembilan,Household,23,21
+2023-11-28,Pahang,Household,31,36
+2023-11-28,Penang,Household,33,29
+2023-11-28,Perak,Household,35,37
+2023-11-28,Perlis,Household,13,14
+2023-11-28,Putrajaya,Household,12,9
+2023-11-28,Sabah,Household,37,42
+2023-11-28,Sarawak,Household,40,46
+2023-11-28,Selangor,Household,48,54
+2023-11-28,Terengganu,Household,27,32
+2023-11-29,Johor,Household,49,43
+2023-11-29,Kedah,Household,28,25
+2023-11-29,Kelantan,Household,24,27
+2023-11-29,Kuala Lumpur,Household,44,23
+2023-11-29,Labuan,Household,9,10
+2023-11-29,Melaka,Household,20,17
+2023-11-29,Negeri Sembilan,Household,22,20
+2023-11-29,Pahang,Household,30,35
+2023-11-29,Penang,Household,32,28
+2023-11-29,Perak,Household,34,36
+2023-11-29,Perlis,Household,12,13
+2023-11-29,Putrajaya,Household,11,8
+2023-11-29,Sabah,Household,36,41
+2023-11-29,Sarawak,Household,39,45
+2023-11-29,Selangor,Household,47,53
+2023-11-29,Terengganu,Household,26,31
+2023-11-30,Johor,Household,51,45
+2023-11-30,Kedah,Household,30,27
+2023-11-30,Kelantan,Household,26,29
+2023-11-30,Kuala Lumpur,Household,46,25
+2023-11-30,Labuan,Household,11,12
+2023-11-30,Melaka,Household,22,19
+2023-11-30,Negeri Sembilan,Household,24,22
+2023-11-30,Pahang,Household,32,37
+2023-11-30,Penang,Household,34,30
+2023-11-30,Perak,Household,36,38
+2023-11-30,Perlis,Household,14,15
+2023-11-30,Putrajaya,Household,13,10
+2023-11-30,Sabah,Household,38,43
+2023-11-30,Sarawak,Household,41,47
+2023-11-30,Selangor,Household,49,55
+2023-11-30,Terengganu,Household,28,33
