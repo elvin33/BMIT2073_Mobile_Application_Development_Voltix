@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../screens/appointment/solar_services_page.dart';
 import '../screens/report/report_history_page.dart';
 import '../screens/report/report_issue_page.dart';
+import '../screens/usage/my_usage_screen.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -60,6 +61,14 @@ class AppDrawer extends StatelessWidget {
             title: const Text('Solar Services'),
             onTap: () {
               _goToPage(context, const SolarServicesPage());
+            },
+          ),
+
+          ListTile(
+            leading: const Icon(Icons.bolt),
+            title: const Text('My Usage'),
+            onTap: () {
+              _goToPage(context, const MyUsageScreen());
             },
           ),
 

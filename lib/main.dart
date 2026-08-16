@@ -10,6 +10,8 @@ import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart';
 import 'providers/appointment/appointment_provider.dart';
 import 'providers/appointment/company_provider.dart';
 import 'providers/report/report_provider.dart';
+import 'providers/usage/dashboard_provider.dart';
+import 'providers/usage/usage_provider.dart';
 import 'screens/appointment/solar_services_page.dart';
 
 
@@ -31,6 +33,12 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (_) => CompanyProvider()),
         ChangeNotifierProvider(create: (_) => AppointmentProvider()),
         ChangeNotifierProvider(create: (_) => ReportProvider()),
+        ChangeNotifierProvider(
+          create: (_) => DashboardProvider()..fetchData(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => UsageProvider()..fetchHistory(),
+        ),
       ],
       child: const MyApp(),
     ),
