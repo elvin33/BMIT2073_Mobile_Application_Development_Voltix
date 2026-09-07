@@ -12,7 +12,6 @@ import 'providers/appointment/company_provider.dart';
 import 'providers/report/report_provider.dart';
 import 'providers/usage/dashboard_provider.dart';
 import 'providers/usage/usage_provider.dart';
-import 'screens/appointment/solar_services_page.dart';
 import 'screens/home_page.dart';
 
 
