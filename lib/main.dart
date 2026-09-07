@@ -13,6 +13,7 @@ import 'providers/report/report_provider.dart';
 import 'providers/usage/dashboard_provider.dart';
 import 'providers/usage/usage_provider.dart';
 import 'screens/appointment/solar_services_page.dart';
+import 'screens/home_page.dart';
 
 
 Future<void> main() async {
@@ -60,7 +61,7 @@ class MyApp extends StatelessWidget {
           seedColor: Colors.black,
         ),
       ),
-      home: const SolarServicesPage(),
+      home: const HomePage(),
     );
   }
 }

@@ -4,6 +4,7 @@ import '../screens/appointment/solar_services_page.dart';
 import '../screens/report/report_history_page.dart';
 import '../screens/report/report_issue_page.dart';
 import '../screens/usage/my_usage_screen.dart';
+import '../screens/home_page.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -54,6 +55,14 @@ class AppDrawer extends StatelessWidget {
                 ],
               ),
             ),
+          ),
+
+          ListTile(
+            leading: const Icon(Icons.home_outlined),
+            title: const Text('Home'),
+            onTap: () {
+              _goToPage(context, const HomePage());
+            },
           ),
 
           ListTile(
