@@ -100,14 +100,6 @@ class HomePage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 8),
-            const Text(
-              'Manage solar services, report energy issues, and track electricity usage.',
-              style: TextStyle(
-                fontSize: 15,
-                color: Color(0xFF666666),
-              ),
-            ),
             const SizedBox(height: 26),
 
             _homeCard(
